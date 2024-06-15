@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVE YOU AYANG</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 340px;
+            height: 100vh;
+            background-color: #F2F7FF;
+        }
+
+        .wrapper-me {
+            position: absolute;
+            right: 10px;
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+        }
+
+        .ayat1 {
+            position: relative;
+            padding: 10px 10px 10px 10px;
+            max-width: 300px;
+            width: max-content;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            background-color: #BDD0B2;
+            border-radius: 10px 10px 0 10px;
+            display: none;
+            /* Hide initially */
+        }
+
+        .ayat1::after {
+            content: '';
+            width: 100%;
+            height: 15px;
+            background: #BDD0B2;
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+        }
+
+        .ayat1>.bottom-ayat1 {
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            border-radius: 0 10px 0 0;
+            background-color: #F2F7FF;
+            z-index: 999;
+        }
+
+        .wrapper-you {
+
+        }
+
+        .ayat2 {
+            margin-right: 180px;
+            position: relative;
+            padding: 10px 10px 10px 10px;
+            max-width: 300px;
+            width: max-content;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            background-color: #FFFF;
+            border-radius: 10px 10px 10px 0;
+            display: none;
+            /* Hide initially */
+        }
+
+        .ayat2::after {
+            content: '';
+            width: 100%;
+            height: 15px;
+            background: #FFFF;
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+        }
+
+        .ayat2>.bottom-ayat2 {
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            border-radius: 10px 0 0 0;
+            background-color: #F2F7FF;
+            z-index: 999;
+        }
+
+        #startButton {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            border: 0;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .wrapper-btn-pilih {
+            margin: 610px 130px 0 0;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px 10px 10px 0;
+            background-color: #FFFF;
+            z-index: 999;
+        }
+
+        .wrapper-btn-pilih::after {
+            margin-bottom: -15px;
+            content: '';
+            width: 100%;
+            height: 15px;
+            background: #FFFF;
+        }
+
+        .wrapper-btn-pilih>button {
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #BDD0B2;
+            z-index: 99999;
+        }
+
+        button:hover {
+            background-color: #A8C3A1;
+        }
+
+        #noButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #BDD0B2;
+            transition: left 0.3s ease-out, top 0.3s ease-out;
+            /* Transisi untuk left dan top */
+        }
+
+        .wrapper-btn-pilih>.bottom-btn-pilih {
+            margin-bottom: -15px;
+            width: 100%;
+            height: 15px;
+            border-radius: 10px 0 0 0;
+            background-color: #F2F7FF;
+            z-index: 999;
+        }
+
+        .button-for {
+            display: none;
+            position: absolute;
+            bottom:70px;
+            right: 10px;
+            padding: 10px;
+            border-radius: 10px 10px 0 10px;
+            background-color: #BDD0B2;
+            text-decoration: none;
+            color: #000;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        .button-for::after {
+            content: '';
+            width: 100%;
+            height: 15px;
+            background: #BDD0B2;
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+        }
+
+        .button-for>.bottom-button-for {
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            border-radius: 0 10px 0 0;
+            background-color: #F2F7FF;
+            z-index: 999;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <button id="startButton">Buka Pesan&#128140;</button>
+        <div class="wrapper-me">
+            <p class="ayat1">Sayang hamampura abinya<span class="bottom-ayat1"></span></p>
+            <p class="ayat1">atas kesalahan abi tadi malem&#128557;<span class="bottom-ayat1"></span></p>
+            <p class="ayat1">&#128140;jujur abi t bermaksud menyalahkan kamu, emang abi nu salah karena malah
+                melampiaskan kekesalan abi ka kamu &#128542; padahal snes salah kamu jujur abi nuju sial hari kamari
+                dari pagina tos sial kasiangan terus pas sampe rmh si bima si bimana malah t jdi ka kampus karena di
+                suruh mamahna jaga warung dipasar tpi karena abi kadinya jadina terpaksa si bima ka kampus terus pas
+                dijalan kertas absen kangge nnton sidang skripsi abi tinggaleun di rmh, terus abi cek wa dosen
+                pembimbing abi t ka kampus padah abi bd bimbingan skripsi sekalian nnton sidang jdina batal terus abi
+                nganterkeun si bima ka rmhna deui &#128532; tos kitu sorena padahal ti kamari barade ka lab tapi t
+                jaradi pada saribuk masing2 terus kamu sami juga sibuk jdina abi galau sepi bingung kesel hampura kalah
+                melampiaskeun ka kamu kalah t mood ka kamu hampura agnes wandayani cinta
+                ku&#128536;&#128149;&#128149;<span class="bottom-ayat1"></span></p>
+            <p class="ayat1">Mau kan ngahampura abi?&#129392;<span class="bottom-ayat1"></span></p>
+            <!-- <p class="ayat1">“Dan orang-orang yang menahan amarahnya dan memaafkan kesalahan orang lain; sesungguhnya Allah menyukai orang-orang yang berbuat kebajikan.” <span>~Al-Qur'an Surat Ali Imran ayat 134</span> <span class="bottom-ayat1"></span></p> -->
+             <p class="ayat2" id="ayat2">enya abi hampura&#129392;<span class="bottom-ayat2"></span></p>
+        </div>
+
+        <a href="foryou.html" class="button-for" id="btn-for">FOR YOU KLIK&#127873;<span class="bottom-button-for"></span></a>
+
+        <div class="wrapper-btn-pilih" id="wrapper-btn-pilih">
+            <button id="yesButton">iya, dihampura&#128151;</button>
+            <button id="noButton">teu dihampura&#128535;</button>
+            <span class="bottom-btn-pilih"></span>
+        </div>
+    </div>
+
+    <!-- Include the audio file for the sound effect -->
+    <audio id="notificationSound" src="notification.mp3" preload="auto"></audio>
+    <audio id="zonk" src="zonk.mp3" preload="auto"></audio>
+    <audio id="yess" src="yess.mp3" preload="auto"></audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var ayats = document.querySelectorAll(".ayat1");
+            var delayAyat = 3000;
+            var soundAyat = document.getElementById("notificationSound");
+            var soundZonk = document.getElementById("zonk");
+            var soundYess = document.getElementById("yess");
+            var startButton = document.getElementById("startButton");
+            var wrapperBtnPilih = document.getElementById("wrapper-btn-pilih");
+
+            startButton.addEventListener("click", function () {
+                startButton.style.display = "none";
+                ayats.forEach((ayat, index) => {
+                    setTimeout(() => {
+                        ayat.style.display = "block";
+                        soundAyat.play();
+
+                        // Check if this is the last iteration
+                        if (index === ayats.length - 1) {
+                            // Set timeout to show wrapperBtnPilih after all ayats are displayed
+                            setTimeout(() => {
+                                wrapperBtnPilih.style.display = "flex";
+                                soundAyat.play();
+                            }, delayAyat);
+                        }
+                    }, delayAyat * index);
+                });
+            });
+
+            const noButton = document.getElementById("noButton");
+            const yessButton = document.getElementById("yesButton");
+            const ayat2 = document.getElementById("ayat2");
+            const btnFor = document.getElementById("btn-for");
+
+            noButton.addEventListener("click", function () {
+                soundZonk.play();
+                // Get the dimensions of the parent container
+                const container = noButton.parentElement;
+                const containerRect = container.getBoundingClientRect();
+
+                // Function to generate a new random position
+                function getRandomPosition() {
+
+                    let boundedLeft = Math.floor(Math.random() * 150) + 1;
+                    let boundedTop = Math.floor(Math.random() * 700) + 1;
+
+                    return { left: boundedLeft, top: boundedTop };
+                }
+
+                // Get a new random position
+                let newPosition = getRandomPosition();
+
+                noButton.style.border = '2px solid';
+
+                // Set the new position
+                noButton.style.position = 'absolute';
+                noButton.style.left = `${newPosition.left}px`;
+                noButton.style.top = `${newPosition.top}px`;
+            });
+            
+            yessButton.addEventListener("click", function() {
+                ayat2.style.display = 'block';
+                setTimeout(() => {
+                    btnFor.style.display = 'block';
+                    soundAyat.play();
+                }, 4000);
+                wrapperBtnPilih.style.display = 'none';
+                soundYess.play();
+            });
+        });
+    </script>
+</body>
+
+</html>
